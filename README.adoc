@@ -1,0 +1,33 @@
+= Analytics Docker Image
+:toc:
+
+== Introduction
+Docker image to bring up a container with typical machine learning tools, locally.
+
+== Tools
+- Spark
+- Pandas
+- H2O
+- Jupyter
+
+== Docker Image
+=== Build
+----
+docker build --tag=vida/analytics-sandbox .
+----
+=== Local setup
+Create the following directories:
+
+. src
+. data
+
+and copy data files into +data+ directory.
+
+The +src+ directory will hold the _jupyter notebooks_.
+
+=== Start locally
+----
+docker run --rm -p 8888:8888 -v ${PWD}/src:/src -v ${PWD}/data:/data lwt/goaltimemodel
+----
+
+
