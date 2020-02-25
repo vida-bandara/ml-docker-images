@@ -27,7 +27,7 @@ The +src+ directory will hold the _jupyter notebooks_.
 
 === Start locally
 ----
-docker run --rm -p 8888:8888 -v ${PWD}/src:/src -v ${PWD}/data:/data lwt/goaltimemodel
+docker run --rm -p 8888:8888 -v ${PWD}/src:/src -v ${PWD}/data:/data vida/analytics-sandbox
 ----
 
 
