@@ -8,6 +8,7 @@ RUN yum -y groupinstall development
 RUN yum -y install python3
 RUN yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
 
+RUN pip3 install matplotlib pillow
 RUN pip3 install pandas
 RUN pip3 install -f http://h2o-release.s3.amazonaws.com/h2o/latest_stable_Py.html h2o
 RUN pip3 install pyspark
