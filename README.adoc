@@ -1,8 +1,8 @@
 = Docker Images for Machine Learning
 :toc:
 
+== Introduction
 Docker images for Machine Learning experiments.
 
-== Images
-1. <<centos8/README.adoc,Centos8>>
-
+== Docker Images
+1. link:centos8/README.adoc[Centos8]
