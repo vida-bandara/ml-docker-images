@@ -1,0 +1,33 @@
+= ML Docker Image on Centos 8
+:toc:
+
+== Introduction
+Docker image with typical machine learning tools on a _Centos 8_ base image.
+
+== Techs
+- Spark
+- Pandas
+- H2O
+- Jupyter
+
+== Docker Image
+=== Build
+----
+docker build --tag=ml/centos8-sandbox .
+----
+=== Local setup
+Create the following directories:
+
+. src
+. data
+
+and copy data files into +data+ directory.
+
+The +src+ directory will hold the _jupyter notebooks_.
+
+=== Start locally
+----
+docker run --rm -p 8888:8888 -v ${PWD}/src:/src -v ${PWD}/data:/data ml/centos8-sandbox
+----
+
+

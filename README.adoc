@@ -1,33 +1,8 @@
-= Analytics Docker Image
+= Docker Images for Machine Learning
 :toc:
 
-== Introduction
-Docker image to bring up a container with typical machine learning tools, locally.
+Docker images for Machine Learning experiments.
 
-== Tools
-- Spark
-- Pandas
-- H2O
-- Jupyter
-
-== Docker Image
-=== Build
-----
-docker build --tag=vida/analytics-sandbox .
-----
-=== Local setup
-Create the following directories:
-
-. src
-. data
-
-and copy data files into +data+ directory.
-
-The +src+ directory will hold the _jupyter notebooks_.
-
-=== Start locally
-----
-docker run --rm -p 8888:8888 -v ${PWD}/src:/src -v ${PWD}/data:/data vida/analytics-sandbox
-----
-
+== Images
+1. <<centos8/README.adoc,Centos8>>
 
