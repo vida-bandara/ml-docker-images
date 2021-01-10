@@ -14,10 +14,15 @@ RUN pip3 install -f http://h2o-release.s3.amazonaws.com/h2o/latest_stable_Py.htm
 RUN pip3 install pyspark
 RUN pip3 install jupyter jupyterlab
 
-RUN jupyter notebook --generate-config
-RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_notebook_config.py
-RUN echo "c.NotebookApp.allow_root = True" >> /root/.jupyter/jupyter_notebook_config.py
-RUN echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py
+# RUN jupyter notebook --generate-config
+# RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_notebook_config.py
+# RUN echo "c.NotebookApp.allow_root = True" >> /root/.jupyter/jupyter_notebook_config.py
+# RUN echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py
+
+RUN jupyter server --generate-config
+RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_server_config.py
+RUN echo "c.NotebookApp.allow_root = True" >> /root/.jupyter/jupyter_server_config.py
+RUN echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_server_config.py
 
 ENV PYSPARK_PYTHON=python3
 ENV SPARK_HOME=/usr/local/lib/python3.6/site-packages/pyspark
