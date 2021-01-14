@@ -1,0 +1,33 @@
+= ML Docker Image on Ubuntu
+:toc:
+
+== Introduction
+Docker image with typical machine learning tools on a _Ubuntu_ base image.
+
+== Techs
+- Spark
+- Pandas
+- H2O
+- Jupyter
+
+== Docker Image
+=== Build
+----
+docker build --tag=ml/ubuntu-sandbox .
+----
+=== Local setup
+Create the following directories:
+
+. src
+. data
+
+and copy data files into +data+ directory.
+
+The +src+ directory will hold the _jupyter notebooks_.
+
+=== Start locally
+----
+docker run --rm -p 8888:8888 -v ${PWD}/src:/src -v ${PWD}/data:/data ml/ubuntu-sandbox
+----
+
+
