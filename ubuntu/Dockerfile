@@ -4,19 +4,14 @@ USER root
 
 RUN apt update
 RUN apt -y upgrade
-RUN apt -y install python3 python3-pip
+RUN apt install -y python3-pip
 
-RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true; \
-    echo "tzdata tzdata/Areas select America" >> /tmp/preseed.txt; \
-    echo "tzdata tzdata/Zones/Europe select Chicago" >> /tmp/preseed.txt; \
-    debconf-set-selections /tmp/preseed.txt; \
-    apt -y install openjdk-8-jdk
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt install -y openjdk-8-jre
 
-RUN pip3 install matplotlib pillow
-RUN pip3 install pandas
-RUN pip3 install -f http://h2o-release.s3.amazonaws.com/h2o/latest_stable_Py.html h2o
-RUN pip3 install pyspark
-RUN pip3 install jupyter jupyterlab
+RUN pip3 install -U pip
+RUN pip install -U setuptools wheel
+RUN pip install pyspark jupyterlab
 
 RUN jupyter notebook --generate-config
 RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_notebook_config.py
